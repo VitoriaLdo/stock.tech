@@ -1,0 +1,32 @@
+[
+    {
+        "id": "P001",
+        "nome": "Produto 1",
+        "tipo": "entrada"
+    },
+    {
+        "id": "P002",
+        "nome": "Produto 2",
+        "tipo": "venda"
+    },
+    {
+        "id": "P003",
+        "nome": "Produto 3",
+        "tipo": "devolucao"
+    },
+    {
+        "id": "P004",
+        "nome": "Produto 4",
+        "tipo": "entrada"
+    },
+    {
+        "id": "P005",
+        "nome": "Produto 5",
+        "tipo": "venda"
+    },
+    {
+        "id": "P006",
+        "nome": "Produto 6",
+        "tipo": "devolucao"
+    }
+]

@@ -1,15 +1,11 @@
-/*ÁREA PRINCIPAL*/
 .movimentacoes-container {
-    background-color: #ffffff;
-    border-radius: 18px;
-    padding: 30px;
-    min-height: calc(100vh - 120px);
+    width: 100%;
+    min-height: calc(100vh - 140px);
     display: flex;
     flex-direction: column;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
 }
 
-/* TOPO*/
+/*Inicio da página*/
 .topo-movimentacoes {
     display: flex;
     flex-direction: column;
@@ -19,106 +15,88 @@
 .topo-movimentacoes h1 {
     font-size: 30px;
     font-weight: 600;
-    color: #1b5e20;
+    color: var(--green-main);
 }
 
-/* BARRA DE AÇÕES */
-
-.acoes-topo {
+.acoes-topo, .mov-left, .mov-right, .acoes-card {
     display: flex;
     align-items: center;
+}
+
+.acoes-topo {
     gap: 14px;
     flex-wrap: wrap;
 }
 
-/*PESQUISA*/
-
+/*Pesquisa*/
 .search-box {
     width: 360px;
     height: 48px;
-    background-color: #f5f5f5;
-    border: 1px solid #e1e1e1;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
     padding: 0 16px;
     gap: 10px;
+    display: flex;
+    align-items: center;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
 }
 
 .search-box i {
-    color: #8d8d8d;
-    font-size: 14px;
+    color: var(--text-muted);
 }
 
 .search-box input {
-    border: none;
-    background: transparent;
-    outline: none;
     width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
     font-size: 14px;
-    color: #444;
+    color: var(--text-dark);
 }
 
-/* =========================================================
-   SELECT
-========================================================= */
+/*Filtro e Botões*/
+select, .btn {
+    height: 48px;
+    border-radius: 12px;
+    font-size: 14px;
+}
 
 select {
-    height: 48px;
     padding: 0 18px;
-    border-radius: 12px;
-    border: 1px solid #d9d9d9;
-    background-color: white;
-    font-size: 14px;
-    color: #444;
-    cursor: pointer;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+    color: var(--text-dark);
 }
 
-/* =========================================================
-   BOTÕES
-========================================================= */
-
 .btn {
-    height: 48px;
     padding: 0 22px;
-    border-radius: 12px;
     border: none;
     cursor: pointer;
-    font-size: 14px;
     font-weight: 500;
     transition: 0.3s;
 }
 
 .btn-green {
-    background-color: #2e7d32;
+    background: var(--green-main);
     color: white;
 }
 
 .btn-green:hover {
-    background-color: #256628;
+    background: var(--green-hover);
 }
 
 .btn-outline {
-    background-color: white;
-    border: 1px solid #d0d0d0;
-}
-
-.btn-outline:hover {
-    background-color: #f4f4f4;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-dark);
 }
 
 .btn-light {
-    background-color: #f5f5f5;
+    background: var(--bg-color);
+    color: var(--text-dark);
 }
 
-.btn-light:hover {
-    background-color: #ebebeb;
-}
-
-/* =========================================================
-   CARDS
-========================================================= */
-
+/*Cards*/
 .cards-movimentacoes {
     margin-top: 35px;
     display: flex;
@@ -128,26 +106,22 @@ select {
 
 .mov-card {
     width: 100%;
-    background-color: white;
-    border: 1px solid #ededed;
-    border-radius: 16px;
     padding: 18px 22px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
     transition: 0.3s;
 }
 
 .mov-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.06);
+    box-shadow: var(--shadow-hover);
 }
 
-/* ESQUERDA */
-
 .mov-left {
-    display: flex;
-    align-items: center;
     gap: 14px;
 }
 
@@ -160,11 +134,10 @@ select {
 .mov-nome {
     font-size: 15px;
     font-weight: 600;
-    color: #222;
+    color: var(--text-dark);
 }
 
-/* BADGES */
-
+/*Tipos de movimentações*/
 .badge {
     width: fit-content;
     padding: 4px 12px;
@@ -174,44 +147,37 @@ select {
 }
 
 .badge.entrada {
-    background-color: #d9f8dd;
+    background: #d9f8dd;
     color: #1f8f3d;
 }
 
 .badge.venda {
-    background-color: #dbeeff;
+    background: #dbeeff;
     color: #1976d2;
 }
 
 .badge.devolucao {
-    background-color: #ffdede;
+    background: #ffdede;
     color: #d32f2f;
 }
 
-/* DIREITA */
-
+/*Icones*/
 .mov-right {
-    display: flex;
-    align-items: center;
     gap: 20px;
 }
 
 .produto-id {
     font-size: 14px;
-    color: #777;
     font-weight: 500;
+    color: var(--text-muted);
 }
 
 .acoes-card {
-    display: flex;
-    align-items: center;
     gap: 14px;
 }
 
 .acoes-card i {
     cursor: pointer;
-    font-size: 15px;
-    transition: 0.2s;
 }
 
 .fa-pen-to-square {
@@ -222,16 +188,7 @@ select {
     color: #d32f2f;
 }
 
-.acoes-card i:hover {
-    transform: scale(1.08);
-}
-
-
-
-/* =========================================================
-   RESPONSIVO
-========================================================= */
-
+/*Responsividade*/
 @media (max-width: 900px) {
 
     .acoes-topo {
@@ -239,7 +196,8 @@ select {
         align-items: stretch;
     }
 
-    .search-box {
+    .search-box,
+    .mov-right {
         width: 100%;
     }
 
@@ -250,7 +208,6 @@ select {
     }
 
     .mov-right {
-        width: 100%;
         justify-content: space-between;
     }
 }

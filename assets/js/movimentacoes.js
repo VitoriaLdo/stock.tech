@@ -1,3 +1,4 @@
+/*Configurações gerais*/
 const container = document.getElementById("cardsContainer");
 const pesquisa = document.getElementById("pesquisa");
 const filtroTipo = document.getElementById("filtroTipo");
@@ -5,10 +6,7 @@ const btnLimpar = document.getElementById("btnLimpar");
 
 let movimentacoes = [];
 
-/* =========================================================
-   CARREGAR JSON
-========================================================= */
-
+/*Dados*/
 fetch("movimentacoes.json")
     .then(response => response.json())
     .then(data => {
@@ -16,14 +14,9 @@ fetch("movimentacoes.json")
         renderizarCards(movimentacoes);
     });
 
-/* =========================================================
-   RENDERIZAR CARDS
-========================================================= */
-
+/*Cards*/
 function renderizarCards(lista) {
-
     container.innerHTML = "";
-
     lista.forEach(item => {
 
         const card = document.createElement("div");
@@ -31,87 +24,55 @@ function renderizarCards(lista) {
 
         card.innerHTML = `
             <div class="mov-left">
-
                 <div class="mov-info">
                     <span class="mov-nome">${item.nome}</span>
-
-                    <span class="badge ${item.tipo}">
-                        ${formatarTipo(item.tipo)}
-                    </span>
+                    <span class="badge ${item.tipo}">${formatarTipo(item.tipo)}</span>
                 </div>
-
             </div>
 
             <div class="mov-right">
-
-                <span class="produto-id">
-                    ID: ${item.id}
-                </span>
-
+                <span class="produto-id">ID: ${item.id}</span>
                 <div class="acoes-card">
                     <i class="fa-solid fa-pen-to-square"></i>
                     <i class="fa-solid fa-trash"></i>
                 </div>
-
             </div>
         `;
 
         container.appendChild(card);
-
     });
-
 }
 
-/* =========================================================
-   FORMATAR TIPO
-========================================================= */
-
+/*Tipos de movimentações*/
 function formatarTipo(tipo) {
-
     if (tipo === "entrada") return "Entrada";
     if (tipo === "venda") return "Venda";
     if (tipo === "devolucao") return "Devolução";
 
     return tipo;
-
 }
 
-/* =========================================================
-   FILTROS
-========================================================= */
-
+/*Pesquisa e botões*/
 function aplicarFiltros() {
-
     const termo = pesquisa.value.toLowerCase();
     const tipo = filtroTipo.value;
 
     const filtrados = movimentacoes.filter(item => {
-
         const nomeMatch = item.nome.toLowerCase().includes(termo);
-
         const tipoMatch =
             tipo === "todos" || item.tipo === tipo;
 
         return nomeMatch && tipoMatch;
-
     });
 
     renderizarCards(filtrados);
-
 }
 
 pesquisa.addEventListener("input", aplicarFiltros);
 filtroTipo.addEventListener("change", aplicarFiltros);
 
-/* =========================================================
-   LIMPAR FILTROS
-========================================================= */
-
 btnLimpar.addEventListener("click", () => {
-
     pesquisa.value = "";
     filtroTipo.value = "todos";
-
     renderizarCards(movimentacoes);
-
 });
